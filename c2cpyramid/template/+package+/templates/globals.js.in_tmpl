@@ -1,0 +1,10 @@
+// this code may execute before the App namespace exists. If it
+// does not exist, we create it ourselves.
+
+if(!window.App) App = {};
+
+App.OpenLayers_ImgPath = "$${request.static_url('{{package}}:static/lib/openlayers/img/')}";
+App.Ext_BLANK_IMAGE_URL = "$${request.static_url('{{package}}:static/lib/ext/Ext/resources/images/default/s.gif')}";
+App.tilecacheURL = "$${request.route_url('tilecache', path='')}";
+App.mapservURL = "${vars:mapserv_url}";
+App.printURL = "${vars:print_url}";

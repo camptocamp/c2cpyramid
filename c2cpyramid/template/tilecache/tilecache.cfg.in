@@ -1,0 +1,14 @@
+[cache]
+type = Disk
+base = /var/sig/tilecache/sample-${instanceid}_tilecache
+
+[DEFAULT]
+type = WMSLayer
+url = ${vars:mapserv_url}
+srs = EPSG:4326
+maxResolution = 1.40625
+levels = 10
+bbox = -180, -90, 180, 90
+extension = png
+
+[countries]

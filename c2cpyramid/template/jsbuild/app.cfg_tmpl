@@ -1,0 +1,103 @@
+[app.js]
+root =
+    {{package}}/static/app/lib
+    {{package}}/static/lib/ext
+    {{package}}/static/lib/proj4js
+    {{package}}/static/lib/openlayers/lib
+    {{package}}/static/lib/geoext/lib
+    {{package}}/static/lib/geoext.ux/ux/SimplePrint/lib
+    {{package}}/static/lib/geoext.ux/ux/Measure/lib
+first =
+    Ext/adapter/ext/ext-base.js
+    Ext/ext-all.js
+    OpenLayers/SingleFile.js
+    OpenLayers/BaseTypes/Class.js
+    OpenLayers/Util.js
+    OpenLayers/Lang.js
+    OpenLayers/Console.js
+    OpenLayers/BaseTypes.js
+    OpenLayers/BaseTypes/Pixel.js
+    OpenLayers/BaseTypes/Bounds.js
+    OpenLayers/BaseTypes/LonLat.js
+    OpenLayers/BaseTypes/Element.js
+    OpenLayers/BaseTypes/Size.js
+include =
+    App/Lang/en.js
+    App/main.js
+exclude =
+    OpenLayers.js
+    GeoExt.js
+    GeoExt/SingleFile.js
+
+[api.js]
+root =
+    {{package}}/static/app/lib
+    {{package}}/static/lib/ext
+    {{package}}/static/lib/proj4js
+    {{package}}/static/lib/openlayers/lib
+    {{package}}/static/lib/geoext/lib
+    {{package}}/static/lib/geoext.ux/ux/SimplePrint/lib
+    {{package}}/static/lib/geoext.ux/ux/Measure/lib
+first =
+    Ext/adapter/ext/ext-base.js
+    Ext/ext-all.js
+    OpenLayers/SingleFile.js
+    OpenLayers/BaseTypes/Class.js
+    OpenLayers/Util.js
+    OpenLayers/Lang.js
+    OpenLayers/Console.js
+    OpenLayers/BaseTypes.js
+    OpenLayers/BaseTypes/Pixel.js
+    OpenLayers/BaseTypes/Bounds.js
+    OpenLayers/BaseTypes/LonLat.js
+    OpenLayers/BaseTypes/Element.js
+    OpenLayers/BaseTypes/Size.js
+include =
+    App/Lang/en.js
+    App/API.js
+exclude =
+    OpenLayers.js
+    GeoExt.js
+    GeoExt/SingleFile.js
+
+[lang-fr.js]
+root =
+    {{package}}/static/app/lib
+    {{package}}/static/lib/ext
+    {{package}}/static/lib/openlayers/lib
+    {{package}}/static/lib/geoext/lib
+    {{package}}/static/lib/geoext.ux/ux/SimplePrint/lib
+    {{package}}/static/lib/geoext.ux/ux/Measure/lib
+include =
+    App/Lang/fr.js
+    Ext/src/locale/ext-lang-fr.js
+exclude =
+    OpenLayers/Lang.js
+
+#[lang-de.js]
+#root =
+#    {{package}}/static/app/lib
+#    {{package}}/static/lib/ext
+#    {{package}}/static/lib/openlayers/lib
+#    {{package}}/static/lib/geoext/lib
+#    {{package}}/static/lib/geoext.ux/ux/SimplePrint/lib
+#    {{package}}/static/lib/geoext.ux/ux/Measure/lib
+#include =
+#    App/Lang/de.js
+#    Ext/src/locale/ext-lang-de.js
+#exclude =
+#    OpenLayers/Lang.js
+
+#[lang-it.js]
+#root =
+#    {{package}}/static/app/lib
+#    {{package}}/static/lib/ext
+#    {{package}}/static/lib/openlayers/lib
+#    {{package}}/static/lib/geoext/lib
+#    {{package}}/static/lib/geoext.ux/ux/SimplePrint/lib
+#    {{package}}/static/lib/geoext.ux/ux/Measure/lib
+#include =
+#    App/Lang/it.js
+#    Ext/src/locale/ext-lang-it.js
+#exclude =
+#    OpenLayers/Lang.js

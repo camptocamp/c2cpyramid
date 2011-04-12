@@ -1,0 +1,105 @@
+[buildout]
+parts = eggs activate modwsgi template jsbuild cssbuild po2mo
+develop = .
+newest = false
+prefer-final = true
+extensions = buildout.dumppickedversions
+versions = versions
+index = http://pypi.camptocamp.net/pypi/
+
+# isolate ourself from the System Python
+include-site-packages = false
+exec-sitecustomize = false
+
+develop-eggs-directory = buildout/develop-eggs
+eggs-directory = buildout/eggs
+parts-directory = buildout/parts
+bin-directory = buildout/bin
+
+[versions]
+# list of the dependencies versions
+# (to be copied from the dumppickedversions output)
+
+[vars]
+# project instance id
+instanceid = override_me
+# the user under which the modwsgi daemon processes are executed
+modwsgi_user = www-data
+# apache entry point for Apache rewrite rules (see apache/wsgi.conf.in)
+apache-entry-point = /${vars:instanceid}/wsgi
+# mapserv host - used to derive the mapserv URL, and in the print config
+mapserv_host = override_me
+# mapserv URL - used by TileCache, and possibly by the JS app
+mapserv_url = http://${vars:mapserv_host}/${vars:instanceid}/mapserv
+# print host - the host where Tomcat executes
+print_host = override_me
+# print URL
+print_url = http://${vars:print_host}/${vars:instanceid}/print/pdf
+# database user
+dbuser = www-data
+# database password
+dbpassword = www-data
+# database host
+dbhost = localhost
+# database port
+dbport = 5432
+# database name
+db = override_me
+# mapserv host
+
+[eggs]
+recipe = z3c.recipe.scripts
+eggs = {{project}}
+dependent-scripts = true
+interpreter = python
+initialization =
+    import paste.script.command
+    for egg in ['PasteScript', 'Pyramid', '{{project}}']: paste.script.command.system_plugins.append(egg)
+
+[activate]
+recipe = evg.recipe.activate
+
+[print]
+recipe = iw.recipe.fetcher
+base_url = http://dev.mapfish.org/maven/repository/org/mapfish/print/
+warfile = print-servlet-1.2-SNAPSHOT.war
+files = print-servlet/1.2-SNAPSHOT/${print:warfile}
+
+[print-deploy]
+recipe = c2c.recipe.jarfile
+mode = update
+basedir = print/
+input = ${print:warfile} config.yaml
+output = /srv/tomcat/tomcat1/webapps/print-sample-${vars:instanceid}.war
+
+[modwsgi]
+recipe = collective.recipe.modwsgi
+eggs = {{project}}
+config-file = ${buildout:directory}/production.ini
+
+[template]
+recipe = z3c.recipe.filetemplate
+source-directory = .
+extends = vars
+
+[jsbuild]
+recipe = JSTools:buildjs
+resource-dir = jsbuild
+config = ${jsbuild:resource-dir}/app.cfg
+output-dir = {{package}}/static/build
+compress = True
+
+[cssbuild]
+recipe = c2c.recipe.cssmin
+input = 
+    {{package}}/static/lib/ext/Ext/resources/css/ext-all.css
+    {{package}}/static/lib/ext/Ext/resources/css/xtheme-gray.css
+    {{package}}/static/lib/openlayers/theme/default/style.css
+    {{package}}/static/lib/geoext/resources/css/gxtheme-gray.css
+    {{package}}/static/lib/geoext.ux/ux/Measure/resources/css/measure.css
+    {{package}}/static/app/css/main.css
+output = {{package}}/static/build/app.css
+
+[po2mo]
+recipe = c2c.recipe.msgfmt
+po-directory = {{package}}/locale
