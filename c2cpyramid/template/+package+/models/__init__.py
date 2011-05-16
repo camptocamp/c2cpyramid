@@ -1,8 +1,7 @@
 import logging
+
 import sqlahelper
-
 from geoalchemy import GeometryColumn, Point
-
 from papyrus.geo_interface import GeoInterface
 
 log = logging.getLogger(__name__)
