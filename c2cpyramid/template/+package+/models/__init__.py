@@ -1,8 +1,5 @@
 import logging
 import sqlahelper
-import sqlalchemy as sa
-import sqlalchemy.orm as orm
-from sqlalchemy import Column, types
 
 from geoalchemy import GeometryColumn, Point
 
