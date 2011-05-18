@@ -45,7 +45,6 @@ dbhost = localhost
 dbport = 5432
 # database name
 db = override_me
-# mapserv host
 
 [eggs]
 recipe = z3c.recipe.scripts
