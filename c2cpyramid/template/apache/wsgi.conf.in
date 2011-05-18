@@ -4,13 +4,17 @@
 # We use mod_wsgi's daemon mode. And we assign a specific process
 # group to the WSGI application.
 #
+# Note: once we use mod_wsgi 3 we'll be able to get rid of the
+# Location block by passing process-group and application-group
+# options to the WSGIScriptAlias directive.
+#
 
 RewriteEngine on
 
 # serve pylons static files via apache:
-Alias /${vars:instanceid}/wsgi/app/   ${buildout:directory/SamplePylons/sample/public/app/}
-Alias /${vars:instanceid}/wsgi/build/ ${buildout:directory/SamplePylons/sample/public/build/}
-Alias /${vars:instanceid}/wsgi/lib/   ${buildout:directory/SamplePylons/sample/public/lib/}
+Alias /${vars:instanceid}/wsgi/app/   ${buildout:directory/{{package}}/public/app/}
+Alias /${vars:instanceid}/wsgi/build/ ${buildout:directory/{{package}}/public/build/}
+Alias /${vars:instanceid}/wsgi/lib/   ${buildout:directory/{{package}}/public/lib/}
 
 # uncomment this if you need HTTP authentication/authorization to work (with
 # repoze.who or any other security toolkit), see the Apache mod_wsgi FAQ to
@@ -24,7 +28,7 @@ RewriteRule ^${vars:apache-entry-point}apihelp.html$ /${vars:instanceid}/wsgi/ap
 RewriteRule ^${vars:apache-entry-point}apiloader.js$ /${vars:instanceid}/wsgi/apiloader.js [PT]
 
 # define a process group
-WSGIDaemonProcess sample:${vars:instanceid} display-name=%{GROUP} user=${vars:modwsgi_user}
+WSGIDaemonProcess {{package}}:${vars:instanceid} display-name=%{GROUP} user=${vars:modwsgi_user}
 
 # define the path to the WSGI app
 WSGIScriptAlias /${vars:instanceid}/wsgi ${buildout:directory/buildout/parts/modwsgi/wsgi}
@@ -33,6 +37,6 @@ WSGIScriptAlias /${vars:instanceid}/wsgi ${buildout:directory/buildout/parts/mod
 # app instance in the global application group so it is always executed within
 # the main interpreter
 <Location /${vars:instanceid}/wsgi>
-    WSGIProcessGroup sample:${vars:instanceid}
+    WSGIProcessGroup {{package}}:${vars:instanceid}
     WSGIApplicationGroup %{GLOBAL}
 </Location>

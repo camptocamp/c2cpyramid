@@ -1,7 +1,7 @@
-<Proxy ajp://localhost:8009/print-sample-${instanceid}>
+<Proxy ajp://localhost:8009/print-{{package}}-${instanceid}>
     Order deny,allow
     Allow from all
 </Proxy>
 
-ProxyPass        /${vars:instanceid}/print/ ajp://localhost:8009/print-sample-${instanceid}/
-ProxyPassReverse /${vars:instanceid}/print/ ajp://localhost:8009/print-sample-${instanceid}/
+ProxyPass        /${vars:instanceid}/print/ ajp://localhost:8009/print-{{package}}-${instanceid}/
+ProxyPassReverse /${vars:instanceid}/print/ ajp://localhost:8009/print-{{package}}-${instanceid}/
