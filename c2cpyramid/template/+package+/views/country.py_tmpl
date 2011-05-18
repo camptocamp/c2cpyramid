@@ -2,10 +2,10 @@ from pyramid.view import view_config
 
 from papyrus.protocol import Protocol
 
-from {{package}}.models import Session, Country
+from {{package}}.models import DBSession, Country
 
 # 'geom' is the name of the mapped class' geometry property
-proto = Protocol(Session, Country, 'the_geom')
+proto = Protocol(DBSession, Country, 'the_geom')
 
 @view_config(route_name='countries_read_many', renderer='geojson')
 def read_many(request):

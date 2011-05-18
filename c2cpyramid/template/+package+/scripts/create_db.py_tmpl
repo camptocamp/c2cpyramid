@@ -29,7 +29,7 @@ def main():
 
     # Create the tables
     models.Base.metadata.create_all()
-    sess = models.Session()
+    sess = models.DBSession()
 
     # Record 1
     #p = models.MyModel(id=1, name=u"Foo Bar")
