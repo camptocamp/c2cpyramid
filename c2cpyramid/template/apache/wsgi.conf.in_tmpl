@@ -12,9 +12,9 @@
 RewriteEngine on
 
 # serve pylons static files via apache:
-Alias /${vars:instanceid}/wsgi/app/   ${buildout:directory/{{package}}/public/app/}
-Alias /${vars:instanceid}/wsgi/build/ ${buildout:directory/{{package}}/public/build/}
-Alias /${vars:instanceid}/wsgi/lib/   ${buildout:directory/{{package}}/public/lib/}
+Alias /${vars:instanceid}/wsgi/app/   ${buildout:directory/{{package}}/static/app/}
+Alias /${vars:instanceid}/wsgi/build/ ${buildout:directory/{{package}}/static/build/}
+Alias /${vars:instanceid}/wsgi/lib/   ${buildout:directory/{{package}}/static/lib/}
 
 # uncomment this if you need HTTP authentication/authorization to work (with
 # repoze.who or any other security toolkit), see the Apache mod_wsgi FAQ to
