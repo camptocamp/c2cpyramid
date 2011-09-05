@@ -81,6 +81,7 @@ config-file = ${buildout:directory}/production.ini
 [template]
 recipe = z3c.recipe.filetemplate
 source-directory = .
+exclude-directories = buildout
 interpreted-options = authtkt_secret
 extends = vars
 
