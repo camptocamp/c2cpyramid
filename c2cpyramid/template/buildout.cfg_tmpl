@@ -45,6 +45,8 @@ dbhost = localhost
 dbport = 5432
 # database name
 db = override_me
+# cookie session secret
+authtkt_secret = __import__('paste.script.util.secret', None, None, 'secret_string').secret_string()
 
 [eggs]
 recipe = z3c.recipe.scripts
@@ -79,6 +81,7 @@ config-file = ${buildout:directory}/production.ini
 [template]
 recipe = z3c.recipe.filetemplate
 source-directory = .
+interpreted-options = authtkt_secret
 extends = vars
 
 [jsbuild]

@@ -9,6 +9,7 @@ default_locale_name = fr
 sqlalchemy.url = postgresql://${dbuser}:${dbpassword}@${dbhost}:${dbport}/${db}
 tilecache.cfg = %(here)s/tilecache/tilecache.cfg
 mako.directories = {{package}}:templates
+authtkt_secret = ${authtkt_secret}
 
 [filter:weberror]
 use = egg:WebError#error_catcher

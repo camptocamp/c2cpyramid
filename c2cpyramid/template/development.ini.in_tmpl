@@ -9,6 +9,7 @@ default_locale_name = fr
 sqlalchemy.url = postgresql://${dbuser}:${dbpassword}@${dbhost}:${dbport}/${db}
 tilecache.cfg = %(here)s/tilecache/tilecache.cfg
 mako.directories = {{package}}:templates
+authtkt_secret = ${instanceid}-secret
 
 [pipeline:main]
 pipeline =
