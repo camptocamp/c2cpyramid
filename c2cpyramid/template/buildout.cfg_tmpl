@@ -46,7 +46,7 @@ dbport = 5432
 # database name
 db = override_me
 # cookie session secret
-authtkt_secret = __import__('paste.script.util.secret', None, None, 'secret_string').secret_string()
+authtkt_secret = __import__('uuid').uuid4().hex
 
 [eggs]
 recipe = z3c.recipe.scripts
