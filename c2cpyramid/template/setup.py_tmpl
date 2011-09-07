@@ -10,7 +10,7 @@ requires = [
     'pyramid',
     'WebError',
     'psycopg2',
-    'sqlalchemy>=0.6,<=0.6.99',
+    'sqlalchemy',
     'sqlahelper',
     'pyramid_tm',
     'papyrus',
