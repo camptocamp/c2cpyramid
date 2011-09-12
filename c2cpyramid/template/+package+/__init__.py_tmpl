@@ -5,11 +5,11 @@ import sqlalchemy
 import sqlahelper
 import pyramid_tm
 import papyrus
+from papyrus.renderers import GeoJSON
 import papyrus_tilecache
 import papyrus_ogcproxy
 
 from {{package}}.resources import Root
-from {{package}}.renderer import geojson_renderer_factory
 
 def locale_negotiator(request):
     """ Our locale negotiator. Returns a locale name or None.
@@ -36,7 +36,7 @@ def main(global_config, **settings):
     config.add_renderer('.js', mako_renderer_factory)
 
     # add the "geojson" renderer
-    config.add_renderer('geojson', geojson_renderer_factory)
+    config.add_renderer('geojson', GeoJSON())
 
     # add a TileCache view
     config.include(papyrus_tilecache.includeme)
