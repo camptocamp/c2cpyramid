@@ -47,11 +47,6 @@
         <script type="text/javascript" src="${request.static_url('{{package}}:static/build/lang-%s.js' % lang)}"></script>
 %     endif
 % endif
-        <script type="text/javascript">
-            <%include file="globals.js" />
-            ##uncomment this line if you use the OGC proxy
-            ##OpenLayers.ProxyHost = "${url(controller='ogcproxy', action='index', url='')}";
-        </script>
     </head>
 
     <body>
