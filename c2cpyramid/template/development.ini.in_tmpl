@@ -1,30 +1,31 @@
-[app:{{project}}]
+[app:main]
 use = egg:{{project}}
-reload_templates = true
-debug_authorization = false
-debug_notfound = false
-debug_routematch = false
-debug_templates = true
-default_locale_name = fr
+
+pyramid.reload_templates = true
+pyramid.debug_authorization = false
+pyramid.debug_notfound = false
+pyramid.debug_routematch = false
+pyramid.debug_templates = true
+pyramid.default_locale_name = en
+pyramid.includes = pyramid_debugtoolbar
+                   pyramid_tm
+
+# c2cpyramid
 sqlalchemy.url = postgresql://${dbuser}:${dbpassword}@${dbhost}:${dbport}/${db}
 tilecache.cfg = %(here)s/tilecache/tilecache.cfg
 mako.directories = {{package}}:templates
-authtkt_secret = ${instanceid}-secret
-
-[pipeline:main]
-pipeline =
-    egg:WebError#evalerror
-    {{project}}
+# uncomment authtkt_secret to use it with AuthTktAuthenticationPolicy
+#authtkt_secret = ${authtkt_secret}
 
 [server:main]
-use = egg:Paste#http
+use = egg:waitress#main
 host = 0.0.0.0
 port = 6543
 
 # Begin logging configuration
 
 [loggers]
-keys = root, {{package}}
+keys = root, {{package_logger}}, sqlalchemy
 
 [handlers]
 keys = console
@@ -36,7 +37,7 @@ keys = generic
 level = INFO
 handlers = console
 
-[logger_{{package}}]
+[logger_{{package_logger}}]
 level = DEBUG
 handlers =
 qualname = {{package}}
