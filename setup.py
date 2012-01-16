@@ -31,8 +31,8 @@ setup(name                 = 'c2cpyramid',
         'Topic :: Software Development :: Libraries :: Python Modules',
         ],
       entry_points         = """
-        [paste.paster_create_template]
-        c2c_pyramid = c2cpyramid.util:Template
+        [pyramid.scaffold]
+        c2cpyramid = c2cpyramid.scaffolds:C2CPyramidTemplate
         """,
       long_description      = """
       c2cpyramid
