@@ -8,7 +8,7 @@ except ImportError:
 setup(name                 = 'c2cpyramid',
       version              = '0.1',
       license              = 'BSD',
-      install_requires     = ['PasteScript', 'tempita'],
+      install_requires     = ['Pyramid>=1.3a5'],
       zip_safe             = False,
       include_package_data = True,
       packages             = find_packages(),
