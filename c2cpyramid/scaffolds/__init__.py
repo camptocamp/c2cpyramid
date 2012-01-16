@@ -20,4 +20,4 @@ from pyramid.scaffolds import PyramidTemplate
 
 class C2CPyramidTemplate(PyramidTemplate):
     _template_dir = 'c2c_pyramid'
-    summary = 'The Camptocamp Pyramid Application Template'
+    summary = 'Pyramid Camptocamp project'
