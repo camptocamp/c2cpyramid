@@ -32,7 +32,7 @@ setup(name                 = 'c2cpyramid',
         ],
       entry_points         = """
         [pyramid.scaffold]
-        c2cpyramid = c2cpyramid.scaffolds:C2CPyramidTemplate
+        c2c = c2cpyramid.scaffolds:C2CProjectTemplate
         """,
       long_description      = """
       c2cpyramid

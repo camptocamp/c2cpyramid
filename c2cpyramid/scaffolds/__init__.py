@@ -18,6 +18,6 @@
 #
 from pyramid.scaffolds import PyramidTemplate
 
-class C2CPyramidTemplate(PyramidTemplate):
-    _template_dir = 'c2c_pyramid'
+class C2CProjectTemplate(PyramidTemplate):
+    _template_dir = 'c2c'
     summary = 'Pyramid Camptocamp project'
