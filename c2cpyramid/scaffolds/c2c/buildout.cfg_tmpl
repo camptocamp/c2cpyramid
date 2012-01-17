@@ -53,9 +53,6 @@ recipe = z3c.recipe.scripts
 eggs = {{project}}
 dependent-scripts = true
 interpreter = python
-initialization =
-    import paste.script.command
-    for egg in ['PasteScript', 'Pyramid', '{{project}}']: paste.script.command.system_plugins.append(egg)
 
 [activate]
 recipe = evg.recipe.activate
