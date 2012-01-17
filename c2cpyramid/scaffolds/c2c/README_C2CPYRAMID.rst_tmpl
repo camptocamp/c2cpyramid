@@ -10,7 +10,7 @@ Note::
     So please edit the ``setup.py``, and update Pyramid dependency in
     ``install_requires`` so that it looks like ``'pyramid>=1.3a5'``.
 
-Getting Started
+Getting started
 ---------------
 
 First, we will check that your project is functionnal. You could follow
@@ -46,6 +46,10 @@ Note that the previous command has generated a SQLite database in
 Let's open http://0.0.0.0:6543 in your browser, you should see a nice example
 page which comes from the "alchemy" scaffold. This page gives you pointers to
 the pyramid documentation.
+
+Note::
+
+    Hit ``Ctrl + c`` to stop the ``pserve`` command.
 
 Update your application
 -----------------------
