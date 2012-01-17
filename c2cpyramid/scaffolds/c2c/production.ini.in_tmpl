@@ -13,6 +13,8 @@ pyramid.includes = pyramid_tm
 sqlalchemy.url = postgresql://${dbuser}:${dbpassword}@${dbhost}:${dbport}/${db}
 tilecache.cfg = %(here)s/tilecache/tilecache.cfg
 mako.directories = {{package}}:templates
+jsbuild_cfg = ${jsbuild:config}
+jsbuild_root_dir = ${jsbuild:base-dir}
 # uncomment authtkt_secret to use it with AuthTktAuthenticationPolicy
 #authtkt_secret = ${authtkt_secret}
 

@@ -87,6 +87,7 @@ recipe = JSTools:buildjs
 resource-dir = jsbuild
 config = ${jsbuild:resource-dir}/app.cfg
 output-dir = {{package}}/static/build
+base-dir = ${buildout:directory}
 compress = True
 
 [cssbuild]
