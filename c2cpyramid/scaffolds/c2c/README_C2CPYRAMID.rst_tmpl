@@ -73,8 +73,21 @@ following lines to the ``[app:main]`` section::
     jsbuild_cfg = ${jsbuild:config}
     jsbuild_root_dir = ${jsbuild:base-dir}
 
-Now launch buildout again to install ``JSToold`` and substitute variables in
-``development.ini.in`` and ``production.ini.in``.
+Now launch buildout again to install ``JSTools`` and generate
+``development.ini`` and ``production.ini`` with substituted variables::
+
+    $ ./buildout/bin/buildout
+
+Then configure a mako renderer for ``.html`` files for your Pyramid
+application: edit ``{{package}}/__init__.py`` and add the following lines
+before the ``config.scan()``::
+
+    # bind the mako renderer to .html file extensions
+    config.add_renderer('.html', renderer_factory)
+
+Don't forget to also include the import statement::
+
+    from pyramid.mako_templating import renderer_factory
 
 Then edit the ``my_view`` Pyramid view in ``{{package}}/views.py`` so that it
 looks like::
