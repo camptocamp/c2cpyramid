@@ -10,8 +10,10 @@ pyramid.default_locale_name = en
 pyramid.includes = pyramid_debugtoolbar
                    pyramid_tm
 
+sqlalchemy.url = sqlite:///%(here)s/{{project}}.db
+
 # c2cpyramid
-sqlalchemy.url = postgresql://${dbuser}:${dbpassword}@${dbhost}:${dbport}/${db}
+#sqlalchemy.url = postgresql://${dbuser}:${dbpassword}@${dbhost}:${dbport}/${db}
 tilecache.cfg = %(here)s/tilecache/tilecache.cfg
 mako.directories = {{package}}:templates
 jsbuild_cfg = ${jsbuild:config}
