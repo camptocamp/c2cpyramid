@@ -92,11 +92,7 @@ compress = True
 [cssbuild]
 recipe = c2c.recipe.cssmin
 input = 
-    {{package}}/static/lib/ext/Ext/resources/css/ext-all.css
-    {{package}}/static/lib/ext/Ext/resources/css/xtheme-gray.css
     {{package}}/static/lib/openlayers/theme/default/style.css
-    {{package}}/static/lib/geoext/resources/css/gxtheme-gray.css
-    {{package}}/static/lib/geoext.ux/ux/Measure/resources/css/measure.css
     {{package}}/static/app/css/main.css
 output = {{package}}/static/build/app.css
 
