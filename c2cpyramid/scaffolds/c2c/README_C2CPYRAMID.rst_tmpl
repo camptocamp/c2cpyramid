@@ -47,3 +47,49 @@ Let's open http://0.0.0.0:6543 in your browser, you should see a nice example
 page which comes from the "alchemy" scaffold. This page gives you pointers to
 the pyramid documentation.
 
+Update your application
+-----------------------
+
+Now, we'll update the application slightly to demonstrate the use of a simple
+Pyramid view bound to a mako template to serve a very basic OpenLayers
+application.
+
+Because this application will use ``JSTools`` to insert script tags in debug
+mode, you have to add it as a dependency to your application. So edit your
+``setup.py``, and append ``"JSTools"`` to the ``install_requires`` property.
+
+Now, we'll update our ``development.ini`` and ``production.ini`` to configure
+mako templates directory and jsbuild stuff.
+We need to templatize these files so that then can have variables substituted
+from the buildout. So first rename these files::
+
+    $ mv development.ini development.ini.in
+    $ mv production.ini production.ini.in
+
+Then edit both ``development.ini.in`` and ``production.ini.in``, and add the
+following lines to the ``[app:main]`` section::
+
+    mako.directories = {{package}}:templates
+    jsbuild_cfg = ${jsbuild:config}
+    jsbuild_root_dir = ${jsbuild:base-dir}
+
+Now launch buildout again to install ``JSToold`` and substitute variables in
+``development.ini.in`` and ``production.ini.in``.
+
+Then edit the ``my_view`` Pyramid view in ``{{package}}/views.py`` so that it
+looks like::
+
+    @view_config(route_name='home', renderer='index.html')
+    def my_view(request):
+        return {"debug": "debug" in request.params}
+
+Now you can launch ``pserve`` again::
+
+    $ ./buildout/bin/pserve development.ini
+    Starting server in PID 3453.
+    serving on http://0.0.0.0:6543
+
+Open http://0.0.0.0:6543 again to see simple OpenLayers map. You can also
+open this page in debug mode with http://0.0.0.0:6543?debug=1 to load
+javascript that wouldn't have been minified.
+
