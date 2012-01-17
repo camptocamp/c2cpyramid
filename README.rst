@@ -9,5 +9,4 @@ generated using the "alchemy" scaffold included in Pyramid.
 
 So here's how to bootstrap a new project::
 
-    $ pcreate -t alchemy MyProject
-    $ pcreate -t c2c MyProject
+    $ pcreate -s alchemy -s c2c MyProject
