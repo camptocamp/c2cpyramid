@@ -1,0 +1,20 @@
+[app.js]
+root =
+    {{package}}/static/app/lib
+    {{package}}/static/lib/openlayers/lib
+first =
+    OpenLayers/SingleFile.js
+    OpenLayers/BaseTypes/Class.js
+    OpenLayers/Util.js
+    OpenLayers/Lang.js
+    OpenLayers/Console.js
+    OpenLayers/BaseTypes.js
+    OpenLayers/BaseTypes/Pixel.js
+    OpenLayers/BaseTypes/Bounds.js
+    OpenLayers/BaseTypes/LonLat.js
+    OpenLayers/BaseTypes/Element.js
+    OpenLayers/BaseTypes/Size.js
+include =
+    App/main.js
+exclude =
+    OpenLayers.js

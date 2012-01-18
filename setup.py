@@ -8,7 +8,7 @@ except ImportError:
 setup(name                 = 'c2cpyramid',
       version              = '0.1',
       license              = 'BSD',
-      install_requires     = ['PasteScript', 'tempita'],
+      install_requires     = ['Pyramid>=1.3a5'],
       zip_safe             = False,
       include_package_data = True,
       packages             = find_packages(),
@@ -31,8 +31,8 @@ setup(name                 = 'c2cpyramid',
         'Topic :: Software Development :: Libraries :: Python Modules',
         ],
       entry_points         = """
-        [paste.paster_create_template]
-        c2c_pyramid = c2cpyramid.util:Template
+        [pyramid.scaffold]
+        c2c = c2cpyramid.scaffolds:C2CProjectTemplate
         """,
       long_description      = """
       c2cpyramid
