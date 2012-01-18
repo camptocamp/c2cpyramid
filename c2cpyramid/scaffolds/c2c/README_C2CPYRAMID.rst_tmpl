@@ -22,14 +22,19 @@ instructions to use buildout directly.
 Prior to using Buildout, its boostrap.py script should be run at the root of
 the application::
 
-    $ cd  /path/to/directory
+    $ cd /path/to/directory
     $ python bootstrap.py --version 1.5.2 --distribute \
         --download-base http://pypi.camptocamp.net/ \
         --setup-source http://pypi.camptocamp.net/distribute_setup.py
 
 Then install the application by using buildout::
 
-    $ ./buildout/bin/buildout
+    $ ./buildout/bin/buildout install eggs
+
+Note::
+
+    The previous buildout command only executes the ``[eggs]`` part which is
+    the minimum required to install your application and its dependencies.
 
 Once the application has been installed, you should create and populate the
 database::
@@ -62,6 +67,14 @@ Because this application will use ``JSTools`` to insert script tags in debug
 mode, you have to add it as a dependency to your application. So edit your
 ``setup.py``, and append ``'JSTools'`` to the ``install_requires`` property.
 
+Note that ``JSTools`` is also used in the buildout to merge and minify all the
+javascript used in your application in a single file.
+The ``jsbuild`` configuration file available in ``jsbuild/app.cfg`` expects
+OpenLayers library to be available at ``{{package}}/static/lib/openlayers/``,
+so for example, if your project is under Git vcs, you can do::
+
+    $ git submodule add https://github.com/openlayers/openlayers.git {{package}}/static/lib/openlayers
+
 Now, we'll update our ``development.ini`` and ``production.ini`` to configure
 mako templates directory and jsbuild stuff.
 We also need to templatize these files so that they can have variables
@@ -77,8 +90,8 @@ following lines to the ``[app:main]`` section::
     jsbuild_cfg = ${jsbuild:config}
     jsbuild_root_dir = ${jsbuild:base-dir}
 
-Now launch buildout again to install ``JSTools`` and generate
-``development.ini`` and ``production.ini`` with substituted variables::
+Now launch buildout to install ``JSTools`` and generate ``development.ini``
+and ``production.ini`` with substituted variables::
 
     $ ./buildout/bin/buildout
 
