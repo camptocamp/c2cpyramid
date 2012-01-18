@@ -1,6 +1,6 @@
 /*
  * @include OpenLayers/Map.js
- * @include OpenLayers/Layer/XYZ.js
+ * @include OpenLayers/Layer/OSM.js
  * @include OpenLayers/Control/Navigation.js
  * @include OpenLayers/Control/PanZoom.js
  * @include OpenLayers/Control/ArgParser.js
