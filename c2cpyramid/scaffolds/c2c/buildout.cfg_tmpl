@@ -27,10 +27,8 @@ instanceid = override_me
 modwsgi_user = www-data
 # apache entry point for Apache rewrite rules (see apache/wsgi.conf.in)
 apache-entry-point = /${vars:instanceid}/wsgi
-# mapserv host - used to derive the mapserv URL, and in the print config
-mapserv_host = override_me
-# mapserv URL - used by TileCache, and possibly by the JS app
-mapserv_url = http://${vars:mapserv_host}/${vars:instanceid}/mapserv
+# mapserv URL - may be used by TileCache/MapProxy, and possibly by the JS app
+mapserv_url = /${vars:instanceid}/mapserv
 # print host - the host where Tomcat executes
 print_host = override_me
 # print URL

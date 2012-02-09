@@ -1,7 +1,6 @@
 ScriptAlias /${vars:instanceid}/mapserv /usr/lib/cgi-bin/mapserv
 <Location /${vars:instanceid}/mapserv>
-   # If you use tilecache and want to prevent direct WMS access, uncomment 
-   # the following lines:
+   # If you want to prevent direct WMS access, uncomment the following lines:
    #Order Deny,Allow
    #Deny from all
    #Allow from 127.0.0.1
