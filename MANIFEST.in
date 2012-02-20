@@ -1,1 +1,1 @@
-recursive-include c2cpyramid/templates *
+recursive-include c2cpyramid/scaffolds/c2c *
