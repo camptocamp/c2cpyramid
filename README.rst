@@ -1,12 +1,14 @@
 ``c2cpyramid``
 ==============
 
-``c2cpyramid`` is a package which provides "c2c" scaffolding for creating a
-Pyramid application with a "Camptocamp flavour".
+``c2cpyramid`` provides a specific scaffold for creating Pyramid applications
+with a "Camptocamp flavour".
 
-This scaffold is intended to be used on applications that have already been
-generated using the "alchemy" scaffold which is directly included in Pyramid.
+The "c2c" scaffold is intended to be applied to applications created using
+Pyramid's "alchemy" scaffold.
 
-So here's how to bootstrap a new project in one line::
+To create a Camptocamp-flavoured application use the following in
+a virtual environment::
 
+    $ pip install https://github.com/camptocamp/c2cpyramid/zipball/master
     $ pcreate -s alchemy -s c2c MyProject
